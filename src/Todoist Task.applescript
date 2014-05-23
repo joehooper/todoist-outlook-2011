@@ -3,6 +3,9 @@
 
 *)
 
+-- get todoist token from text file
+set todoistToken to (read file ((path to home folder as text) & "Library:Application Support:Microsoft:Office:Outlook Script Menu Items:todoist-token.txt"))
+
 tell application "Microsoft Outlook"
 	
 	-- get the currently selected message or messages
@@ -13,9 +16,6 @@ tell application "Microsoft Outlook"
 		display dialog "Please select a message first and then run this script." with icon 1
 		return
 	end if
-	
-	-- get todoist token from text file
-	set todoistToken to (read file ((path to home folder as text) & "Library:Application Support:Microsoft:Office:Outlook Script Menu Items:todoist-token.txt"))
 	
 	repeat with theMessage in selectedMessages
 		
