@@ -23,10 +23,14 @@ tell application "Microsoft Outlook"
 		set theName to subject of theMessage
 		set theSender to sender of theMessage
 		set thePriority to priority of theMessage
-		set theContent to content of theMessage
+		if thePriority is priority high then
+			set thePriority to "4"
+		else
+			set thePriority to "0"
+		end if
 		
 		-- create a new task with the information from the message
-		do shell script "curl -X POST -d 'content=" & theName & " for " & name of theSender & "' -d 'token=" & todoistToken & "'  -d 'priority=0' https://todoist.com/API/additem"
+		do shell script "curl -X POST -d 'content=" & theName & " for " & name of theSender & "' -d 'token=" & todoistToken & "'  -d 'priority=" & thePriority & "' https://todoist.com/API/additem"
 		
 	end repeat
 	
