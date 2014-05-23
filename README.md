@@ -12,5 +12,5 @@ In the same folder, create a text file named todoist-token.txt that contains you
 
 Highlight one or more messages in Outlook, then select Todoist Task from the Applescript menu.  
 A new task will be created in your Todoist inbox in the following format:  
-[SUBJECT LINE OF MESSAGE] for [NAME OF MESSAGE SENDER]
-
+[SUBJECT LINE OF MESSAGE] for [NAME OF MESSAGE SENDER]  
+High priority messages in Outlook will be priority 4 messages in Todoist
