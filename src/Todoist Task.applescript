@@ -3,8 +3,17 @@
 
 *)
 
+on replace_chars(this_text, search_string, replacement_string)
+	set AppleScript's text item delimiters to the search_string
+	set the item_list to every text item of this_text
+	set AppleScript's text item delimiters to the replacement_string
+	set this_text to the item_list as string
+	set AppleScript's text item delimiters to ""
+	return this_text
+end replace_chars
+
 -- get todoist token from text file
-set todoistToken to (read file ((path to home folder as text) & "Library:Application Support:Microsoft:Office:Outlook Script Menu Items:todoist-token.txt"))
+set todoistToken to my replace_chars(read file ((path to home folder as text) & "Library:Application Support:Microsoft:Office:Outlook Script Menu Items:todoist-token.txt"), "\n", "")
 
 tell application "Microsoft Outlook"
 	
