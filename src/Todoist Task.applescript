@@ -39,7 +39,7 @@ tell application "Microsoft Outlook"
 		end if
 		
 		-- create a new task with the information from the message
-		do shell script "curl -X POST -d 'content=" & theName & " for " & name of theSender & "' -d 'token=" & todoistToken & "'  -d 'priority=" & thePriority & "' https://todoist.com/API/additem"
+		do shell script "curl -X POST -d 'content=" & theName & " for " & name of theSender & "' -d 'token=" & todoistToken & "'  -d 'priority=" & thePriority & "' -d 'date_string=today' https://todoist.com/API/additem"
 		
 	end repeat
 	
